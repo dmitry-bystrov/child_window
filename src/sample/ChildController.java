@@ -14,18 +14,22 @@ public class ChildController implements Initializable {
     @FXML
     TextArea textArea;
 
+    public void addEventToLog(String event) {
+        textArea.appendText(new Date() + " " + event + "\n");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        textArea.appendText(new Date() + "Child window initialization" + "\n");
+        textArea.appendText(new Date() + " Child window initialization" + "\n");
     }
 
     public void setStageListeners(Stage childWindowStage) {
         childWindowStage.setOnShowing(event -> {
-            textArea.appendText(new Date() + "Child window showing" + "\n");
+            textArea.appendText(new Date() + " Child window showing" + "\n");
         });
 
         childWindowStage.setOnHiding(event -> {
-            textArea.appendText(new Date() + "Child window hiding" + "\n");
+            textArea.appendText(new Date() + " Child window hiding" + "\n");
         });
     }
 }

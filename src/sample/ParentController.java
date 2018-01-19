@@ -8,13 +8,18 @@ import javafx.stage.Stage;
 
 public class ParentController {
     private Stage childWindowStage;
+    private ChildController childController;
 
-    public void showChildWindow(ActionEvent actionEvent) {
-        childWindowStage.show();
+    public void showHideChildWindow(ActionEvent actionEvent) {
+        if (childWindowStage.isShowing()){
+            childWindowStage.hide();
+        } else {
+            childWindowStage.show();
+        }
     }
 
-    public void hideChildWindow(ActionEvent actionEvent) {
-        childWindowStage.hide();
+    public void addSomethingToLog(ActionEvent actionEvent) {
+        childController.addEventToLog("Some event added");
     }
 
     public void initChildStage(Stage primaryStage) throws Exception {
@@ -23,9 +28,11 @@ public class ParentController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("child.fxml"));
         Parent root = loader.load();
 
-        ((ChildController)loader.getController()).setStageListeners(childWindowStage);
+        childController = loader.getController();
+        childController.setStageListeners(childWindowStage);
 
         childWindowStage.setTitle("Child window");
         childWindowStage.setScene(new Scene(root, 600, 275));
+        childWindowStage.initOwner(primaryStage);
     }
 }
