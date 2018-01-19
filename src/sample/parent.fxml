@@ -1,0 +1,7 @@
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.layout.VBox?>
+<VBox fx:controller="sample.ParentController" xmlns:fx="http://javafx.com/fxml" alignment="BASELINE_CENTER" spacing="10">
+    <Button text="Show child window" onAction="#showChildWindow" />
+    <Button text="Hide child window" onAction="#hideChildWindow" />
+</VBox>
