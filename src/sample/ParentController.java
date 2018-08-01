@@ -37,15 +37,7 @@ public class ParentController {
         childWindowStage.initOwner(primaryStage.getOwner());
         parentWindowStage = primaryStage;
 
-        parentWindowStage.setOnCloseRequest(e -> {
-            System.out.println("Close request");
-        });
-
-        childWindowStage.setOnCloseRequest(e -> {
-            if (!parentWindowStage.isShowing()) {
-                parentWindowStage.show();
-            }
-        });
+        childWindowStage.setOnCloseRequest(e -> parentWindowStage.show());
     }
 
     public void showChildAndHideParent(ActionEvent actionEvent) {
