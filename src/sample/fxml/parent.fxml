@@ -4,4 +4,5 @@
 <VBox fx:controller="sample.ParentController" xmlns:fx="http://javafx.com/fxml" alignment="BASELINE_CENTER" spacing="10">
     <Button prefWidth="150" text="Add something to log" onAction="#addSomethingToLog" />
     <Button prefWidth="150" text="Show/hide child window" onAction="#showHideChildWindow" />
+    <Button prefWidth="150" text="Show child and hide parent" onAction="#showChildAndHideParent" />
 </VBox>
